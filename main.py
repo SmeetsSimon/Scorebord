@@ -3,6 +3,8 @@ import pygame
 WIDTH = 800
 HEIGHT = 600
 
+white = (255, 255, 255)
+
 thuis = 0
 thuisset = 0
 uit = 0
@@ -11,7 +13,7 @@ uitset = 0
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
 
-font = pygame.font.SysFont("centurygothic", 24)
+font = pygame.font.SysFont("none", 40)
 
 # Start de klok
 clock = pygame.time.Clock()
@@ -67,9 +69,9 @@ while running:
     if uitset == 3 and thuisset == 2:
         print("De uitploeg wint!")
 
-    screen.fill("black")
+    screen.fill(white)
 
-    text = font.render(f"Thuis   {thuis} ({thuisset}) - ({uitset}) {uit}    uit", True, "white")
+    text = font.render(f"Thuis   {thuis} ({thuisset}) - ({uitset}) {uit}    uit", True, "black")
     screen.blit(text, (WIDTH / 2 - (text.get_width() / 2), HEIGHT / 2 - (text.get_height() / 2)))
 
     pygame.display.flip()
