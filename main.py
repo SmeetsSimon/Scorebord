@@ -12,6 +12,10 @@ uitset = 0
 
 pygame.init()
 screen = pygame.display.set_mode((WIDTH, HEIGHT))
+maaseik = pygame.image.load("maaseik.jpg")
+maaseik = pygame.transform.smoothscale(maaseik,(200, 150))
+Roeselare= pygame.image.load("roeselare.png")
+Roeselare = pygame.transform.smoothscale(Roeselare,(200, 150))
 
 font = pygame.font.SysFont("none", 40)
 
@@ -69,10 +73,40 @@ while running:
     if uitset == 3 and thuisset == 2:
         print("De uitploeg wint!")
 
-    screen.fill(white)
+    screen.fill("white")
 
-    text = font.render(f"Thuis   {thuis} ({thuisset}) - ({uitset}) {uit}    uit", True, "black")
-    screen.blit(text, (WIDTH / 2 - (text.get_width() / 2), HEIGHT / 2 - (text.get_height() / 2)))
+
+    screen.blit(maaseik, (100, 100))
+    screen.blit(Roeselare, (500, 100))
+
+
+
+
+    font = pygame.font.SysFont("comicsansms", 45)
+    text = font.render(f"thuis: {thuis}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text,(WIDTH/4-w/2 ,HEIGHT/1.5-h/2))
+
+    font = pygame.font.SysFont("comicsansms", 45)
+    text = font.render(f"uit: {uit}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text, (WIDTH / 1.35 - w / 3, HEIGHT / 1.5 - h / 2))
+
+    font = pygame.font.SysFont("comicsansms", 24)
+    text = font.render(f"set {thuisset}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text, (WIDTH / 4 - w / 3, HEIGHT / 1.25 - h / 2))
+
+    font = pygame.font.SysFont("comicsansms", 24)
+    text = font.render(f"set {uitset}", True, "black")
+    h = text.get_height()
+    w = text.get_width()
+    screen.blit(text, (WIDTH / 1.35 - w / 3, HEIGHT / 1.25 - h / 2))
+
+
 
     pygame.display.flip()
 
